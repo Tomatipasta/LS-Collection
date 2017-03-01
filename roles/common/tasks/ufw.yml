@@ -1,0 +1,17 @@
+---
+- name: enable firewall
+  ufw:
+    state: enabled
+    policy: allow
+
+- name: allow ssh
+  ufw:
+    direction: in
+    rule: allow
+    proto: tcp
+    port: 6745
+
+- name: deny incoming
+  ufw:
+    policy: deny
+    direction: incoming

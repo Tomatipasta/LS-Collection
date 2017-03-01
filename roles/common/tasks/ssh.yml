@@ -1,0 +1,12 @@
+---
+- name: update sshd configuration
+  copy:
+    src: sshd_config
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+
+- name: restart sshd
+  service:
+    name: ssh
+    state: reloaded

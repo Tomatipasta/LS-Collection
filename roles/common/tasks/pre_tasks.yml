@@ -1,0 +1,11 @@
+---
+- name: apt-get update
+  raw: apt-get update -qq
+  when: no_python2
+- name: Install python 2.7
+  raw: apt-get install -qq python2.7
+  when: no_python2
+- name: install aptitude
+  apt:
+    name: aptitude
+    state: latest

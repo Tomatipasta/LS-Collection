@@ -1,0 +1,32 @@
+---
+- name: create admin group
+  group:
+    name: admin
+    state: present
+
+- name: generate password for sysadmin
+  shell: openssl rand 48 -base64
+  register: make_sysadmin_password
+
+- name: create sysadmin user
+  user:
+    name: sysadmin
+    createhome: yes
+    shell: /bin/bash
+    append: yes
+    groups: admin
+    password: "{{ make_sysadmin_password.stdout }}"
+
+- name: sysadmin ssh keys
+  authorized_key:
+    user: sysadmin
+    state: present
+    key: "{{ item }}"
+  with_file:
+    - keys/mikk.key
+
+- name: set sudoers
+  copy:
+    src: sudoers
+    dest: /etc/sudoers
+    validate: 'visudo -cf %s'
