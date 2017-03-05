@@ -1,0 +1,3 @@
+---
+- name: set server timezone
+  command: timedatectl set-timezone UTC

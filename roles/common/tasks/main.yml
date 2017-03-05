@@ -4,6 +4,4 @@
 - include: ssh.yml
 - include: apt.yml
 - include: ufw.yml
-
-- name: set server timezone
-  command: timedatectl set-timezone UTC
+- include: set_timezone.yml

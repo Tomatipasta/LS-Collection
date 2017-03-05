@@ -23,6 +23,7 @@
     state: present
     key: "{{ item }}"
   with_file:
+    - keys/artur.key
     - keys/mikk.key
 
 - name: set sudoers
