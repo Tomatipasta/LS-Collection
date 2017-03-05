@@ -1,13 +1,9 @@
-- hosts: servers 
-  sudo: true
-  remote_user: sysadmin
-
+---
+- name: wrapper playbook for kitchen testing "ansible-os-hardening" with custom vars for testing
+  hosts: localhost
+  roles:
+    - ansible-os-hardening
   vars:
-    # for newer ubuntus.. (pending testing)
-    ansible_python_interpreter: /usr/bin/python2.7
-    no_python2: true
-
-    # Normal OS Hardening suggested by community
     os_security_users_allow: change_user
     os_security_kernel_enable_core_dump: false
     os_security_suid_sgid_remove_from_unknown: true
@@ -18,6 +14,7 @@
     os_security_suid_sgid_blacklist: ['/bin/umount']
     os_security_suid_sgid_whitelist: ['/usr/bin/rlogin']
 
+- name: wrapper playbook for kitchen testing "ansible-os-hardening"
+  hosts: localhost
   roles:
-    - common
     - ansible-os-hardening
