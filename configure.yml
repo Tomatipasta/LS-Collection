@@ -21,8 +21,13 @@
     os_auth_allow_homeless: true
     os_security_suid_sgid_blacklist: ['/bin/umount']
     os_security_suid_sgid_whitelist: ['/usr/bin/rlogin']
+    # Malware scanner cronjobs
+    lynis_cron: /usr/local/lynis/lynis -c --cronjob --upload --profile /usr/local/lynis/custom.prf
+    maldet_cron: /usr/local/maldetect/maldet -b -r / 1 >> /dev/null 2>&1
+    lynis_version: lynis-2.4.4.tar.gz
 
   roles:
     - common
-#    - ansible-ossec-agent 
-    - ansible-os-hardening
+    - ansible-apparmor # AppArmor configuration
+#    - ansible-ossec-agent  # OSSEC implementation for Monitoring team
+    - ansible-os-hardening # Basic Kernel / OS hardening stuff
