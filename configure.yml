@@ -1,12 +1,16 @@
-- hosts: servers 
+- hosts: testing 
   sudo: true
   remote_user: sysadmin
 
   vars:
     # for newer ubuntus.. (pending testing)
     ansible_python_interpreter: /usr/bin/python2.7
-    no_python2: true
-
+    no_python2: true	
+    # Ossec server rules
+    ossec_server_ip: '10.2.5.2'
+    ossec_server_fqdn: 'i_dont_know_yet'
+    ossec_server_name: 'i_dont_know_yet'
+    ossec_managed_server: true
     # Normal OS Hardening suggested by community
     os_security_users_allow: change_user
     os_security_kernel_enable_core_dump: false
@@ -20,4 +24,5 @@
 
   roles:
     - common
+#    - ansible-ossec-agent 
     - ansible-os-hardening
