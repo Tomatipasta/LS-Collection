@@ -1,4 +1,4 @@
-- hosts: ubuntu-xenials
+- hosts: ubuntu-xenial
   gather_facts: False
   tasks:
     - name: apt-get update
