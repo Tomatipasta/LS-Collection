@@ -25,6 +25,7 @@
   with_file:
     - keys/artur.key
     - keys/mikk.key
+    - keys/kert.key
 
 - name: set sudoers
   copy:
