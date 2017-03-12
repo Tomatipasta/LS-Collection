@@ -3,5 +3,6 @@
 - include: users.yml
 - include: ssh.yml
 - include: apt.yml
+- include: reinstall_critical_packages.yml
 - include: ufw.yml
 - include: set_timezone.yml
