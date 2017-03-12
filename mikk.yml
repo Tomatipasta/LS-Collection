@@ -1,0 +1,29 @@
+- hosts: mikk-testing
+  sudo: true
+  gather_facts: false
+  remote_user: sysadmin
+
+  vars:
+    no_python2: false
+    root_password: torro!234
+    # Ossec server rules
+    ossec_server_ip: '10.2.5.2'
+    ossec_server_fqdn: 'i_dont_know_yet'
+    ossec_server_name: 'i_dont_know_yet'
+    ossec_managed_server: true
+    # Normal OS Hardening suggested by community
+    os_security_users_allow: change_user
+    os_security_kernel_enable_core_dump: false
+    os_security_suid_sgid_remove_from_unknown: true
+    os_auth_pam_passwdqc_enable: false
+    os_desktop_enable: true
+    os_env_extra_user_paths: ['/home']
+    os_auth_allow_homeless: true
+    os_security_suid_sgid_blacklist: ['/bin/umount']
+    os_security_suid_sgid_whitelist: ['/usr/bin/rlogin']
+  roles:
+    - common
+    - ansible-apparmor # AppArmor configuration
+#   - ansible-role-clamav # (Anti-virus)
+#    - ansible-ossec-agent  # OSSEC implementation for Monitoring team
+    - ansible-os-hardening # Basic Kernel / OS hardening stuff

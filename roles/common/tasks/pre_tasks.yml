@@ -5,9 +5,9 @@
 - name: Install python 2.7
   raw: apt-get install -qq python2.7
   when: no_python2
+- name: Install sudo
+  raw: apt-get install -qq sudo
 - name: install aptitude
   apt:
     name: aptitude
     state: latest
-- name: install systemd-services for time control
-  raw: apt-get install -qq systemd-services

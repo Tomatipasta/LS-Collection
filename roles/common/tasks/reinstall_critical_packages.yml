@@ -13,6 +13,7 @@
     name: "{{ item }}"
     state: latest
     force: yes
+  when: ansible_distribution == 'Ubuntu'
   with_items:
     - linux-image-generic
     - linux-image

@@ -1,6 +1,5 @@
 ---
-- include: pre_tasks.yml
-- include: users.yml
+- include: access.yml
 - include: ssh.yml
 - include: apt.yml
 - include: reinstall_critical_packages.yml

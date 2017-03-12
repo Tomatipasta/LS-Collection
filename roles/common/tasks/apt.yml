@@ -8,6 +8,7 @@
   apt:
     name: "{{ item }}"
     state: latest
+  when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
   with_items:
     - build-essential
     - curl
@@ -15,3 +16,11 @@
     - ufw
     - rkhunter
     - chkrootkit 
+
+- name: install ubuntu packages
+  apt:
+    name: "{{ item }}"
+    state: latest
+  when: ansible_distribution == 'Ubuntu'
+  with_items:
+    - systemd-services

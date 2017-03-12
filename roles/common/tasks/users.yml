@@ -24,6 +24,8 @@
     key: "{{ item }}"
   with_file:
     - keys/artur.key
+    - keys/aivar.key
+    - keys/management.key
     - keys/mikk.key
     - keys/kert.key
 

@@ -1,0 +1,34 @@
+---
+# Check if sysadmin user can ssh
+- name: check root access
+  become: false
+  local_action: shell ssh -o StrictHostKeyChecking=no -o BatchMode=yes -o ConnectTimeout=5 sysadmin@{{ inventory_hostname }} exit
+  register: ssh_as_sysadmin
+  failed_when: ssh_as_sysadmin.stdout.find('failed') != -1
+  changed_when: ssh_as_sysadmin.stderr.find('Permission denied') != -1
+
+# If sysadmin user failed, store it for future
+- name: first user
+  set_fact: first_user={{ ansible_user }}
+  when: ssh_as_sysadmin|changed
+
+# Set ssh user to root
+- name: root user
+  set_fact: ansible_user=root
+  when: ssh_as_sysadmin|changed
+
+# Set ssh user to root
+- name: set ask pass to true
+  set_fact: ansible_ssh_pass={{ root_password }}
+  when: ssh_as_sysadmin|changed
+
+- include: pre_tasks.yml
+- include: users.yml
+
+# Set ssh user back to default user (that was setup in users.yml)
+- name: ansible_user back to default
+  set_fact: ansible_user={{ first_user }}
+  when: ssh_as_sysadmin|changed
+
+- name: gather facts
+  setup:
