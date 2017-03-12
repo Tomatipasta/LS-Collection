@@ -25,10 +25,6 @@ root  ALL=(ALL:ALL) ALL
 # Members of the admin group may gain root privileges
 %admin ALL=(ALL) NOPASSWD:ALL
 
-app     ALL=(ALL) NOPASSWD: /bin/systemctl enable timbeter*
-app     ALL=(ALL) NOPASSWD: /bin/systemctl start timbeter*
-app     ALL=(ALL) NOPASSWD: /bin/systemctl stop timbeter*
-
 # See sudoers(5) for more information on "#include" directives:
 
 #includedir /etc/sudoers.d
