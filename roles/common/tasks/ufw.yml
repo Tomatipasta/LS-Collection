@@ -9,7 +9,7 @@
     direction: in
     rule: allow
     proto: tcp
-    port: 6745
+    port: 22
 
 - name: deny incoming
   ufw:
