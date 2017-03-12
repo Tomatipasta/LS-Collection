@@ -10,8 +10,6 @@
   remote_user: sysadmin
 
   vars:
-    # for newer ubuntus.. (pending testing)
-    ansible_python_interpreter: /usr/bin/python2.7
     no_python2: true	
     # Ossec server rules
     ossec_server_ip: '10.2.5.2'
