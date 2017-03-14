@@ -25,7 +25,23 @@
     proto: tcp
     port: 443
 
+- name: allow game_tcp_in
+  ufw:
+    direction: in
+    rule: allow
+    proto: tcp
+    port: 139,445
+
+- name: allow game_udp_out
+  ufw:
+    direction: out
+    rule: allow
+    proto: udp
+    port: 53,1514
+
 - name: deny incoming
   ufw:
     policy: deny
     direction: incoming
+
+
