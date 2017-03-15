@@ -1,9 +1,10 @@
-- hosts: artur 
+- hosts: artur-linux
   sudo: true
-  remote_user: sysadmin
+  remote_user: root 
 
   vars:
     # for newer ubuntus.. (pending testing)
+    root_password: torro!234
     ansible_python_interpreter: /usr/bin/python2.7
     no_python2: true	
     # Ossec server rules
@@ -22,8 +23,8 @@
     os_security_suid_sgid_blacklist: ['/bin/umount']
     os_security_suid_sgid_whitelist: ['/usr/bin/rlogin']
   roles:
-#    - common
+    - common
 #    - ansible-apparmor # AppArmor configuration
 #    - ansible-role-clamav # (Anti-virus)
-    - ansible-ossec-agent  # OSSEC implementation for Monitoring team
+#    - ansible-ossec-agent  # OSSEC implementation for Monitoring team
 #    - ansible-os-hardening # Basic Kernel / OS hardening stuff
