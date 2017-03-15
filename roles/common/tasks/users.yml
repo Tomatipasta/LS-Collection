@@ -24,10 +24,11 @@
     key: "{{ item }}"
   with_file:
     - keys/artur.key
+    - keys/andres.key
     - keys/aivar.key
+    - keys/jyrgo.key
     - keys/management.key
     - keys/mikk.key
-    - keys/kert.key
 
 - name: set sudoers
   copy:
