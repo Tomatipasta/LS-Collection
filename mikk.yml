@@ -1,4 +1,4 @@
-- hosts: mikk-testing
+- hosts: ws
   sudo: true
   gather_facts: false
   remote_user: sysadmin
@@ -8,8 +8,8 @@
     root_password: torro!234
     # Ossec server rules
     ossec_server_ip: '10.2.5.2'
-    ossec_server_fqdn: 'i_dont_know_yet'
-    ossec_server_name: 'i_dont_know_yet'
+    ossec_server_fqdn: 'ls17-capture'
+    ossec_server_name: 'ls17-capture'
     ossec_managed_server: true
     # Normal OS Hardening suggested by community
     os_security_users_allow: change_user
@@ -24,6 +24,6 @@
   roles:
     - common
     - ansible-apparmor # AppArmor configuration
-#   - ansible-role-clamav # (Anti-virus)
-#    - ansible-ossec-agent  # OSSEC implementation for Monitoring team
+    - ansible-ossec-agent  # OSSEC implementation for Monitoring team
     - ansible-os-hardening # Basic Kernel / OS hardening stuff
+    - workstation
