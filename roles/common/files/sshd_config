@@ -27,7 +27,7 @@ PermitRootLogin No
 
 # Use kernel sandbox mechanisms where possible in unprivilegied processes
 # Systrace on OpenBSD, Seccomp on Linux, seatbelt on MacOSX/Darwin, rlimit elsewhere.
-UsePrivilegeSeparation sandbox
+UsePrivilegeSeparation yes
 
 PubkeyAuthentication yes
 AcceptEnv LANG LC_*
