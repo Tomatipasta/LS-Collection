@@ -7,5 +7,10 @@
     - rpcbind
     - snmpd
     - libsnmp-base
+    - ntpd
     - openntpd
     - exim4
+    - exim4-base
+    - exim4-daemon-light 
+    - usbmuxd
+    - ircd
