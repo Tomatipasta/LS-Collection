@@ -1,0 +1,153 @@
+---
+- name: enable firewall
+  ufw:
+    state: enabled
+    policy: allow
+
+- name: allow ssh eth1
+  ufw:
+    if: eth1
+    direction: in
+    rule: allow
+    proto: tcp
+    port: 22
+
+- name: allow ssh eth2
+  ufw:
+    if: eth2
+    direction: in
+    rule: allow
+    proto: tcp
+    port: 22
+
+- name: allow 139 eth1
+  ufw:
+    if: eth1
+    direction: in
+    rule: allow
+    proto: tcp
+    port: 139
+
+- name: allow 139 eth2
+  ufw:
+    if: eth2
+    direction: in
+    rule: allow
+    proto: tcp
+    port: 139
+
+- name: allow 445 eth1
+  ufw:
+    if: eth1
+    direction: in
+    rule: allow
+    proto: tcp
+    port: 445
+
+- name: allow 445 eth2
+  ufw:
+    if: eth2
+    direction: in
+    rule: allow
+    proto: tcp
+    port: 445
+
+- name: allow 80 eth1
+  ufw:
+    if: eth1
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 80
+
+- name: allow 80 eth2
+  ufw:
+    if: eth2
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 80
+
+- name: allow 443 eth1
+  ufw:
+    if: eth1
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 443
+
+- name: allow 443 eth2
+  ufw:
+    if: eth2
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 443
+
+- name: allow 1514 eth1
+  ufw:
+    if: eth1
+    direction: out
+    rule: allow
+    proto: udp
+    port: 1514
+
+- name: allow 1514 eth2
+  ufw:
+    if: eth2
+    direction: out
+    rule: allow
+    proto: udp
+    port: 1514
+
+- name: allow 53 eth1
+  ufw:
+    if: eth1
+    direction: out
+    rule: allow
+    proto: udp
+    port: 53
+
+- name: allow 53 eth2
+  ufw:
+    if: eth2
+    direction: out
+    rule: allow
+    proto: udp
+    port: 53
+
+- name: deny outgoing eth1
+  ufw:
+    interface: eth1
+    policy: deny
+    direction: outgoing
+
+- name: deny outgoing eth2
+  ufw:
+    interface: eth2
+    policy: deny
+    direction: outgoing
+
+- name: deny outgoing eth1
+  ufw:
+    interface: eth1
+    policy: deny
+    direction: incoming
+
+- name: deny incoming eth2
+  ufw:
+    interface: eth2
+    policy: deny
+    direction: incoming
+
+- name: allow all eth0
+  ufw:
+    interface: eth0
+    policy: allow
+    direction: incoming
+
+- name: allow all eth0
+  ufw:
+    interface: eth0
+    policy: allow
+    direction: outgoing

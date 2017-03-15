@@ -1,0 +1,11 @@
+---
+- name: uninstall unneeded services
+  apt:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - rpcbind
+    - snmpd
+    - libsnmp-base
+    - openntpd
+    - exim4

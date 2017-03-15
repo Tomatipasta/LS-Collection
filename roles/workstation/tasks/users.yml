@@ -1,0 +1,14 @@
+---
+- name: remove unneeded users
+  user:
+    state: absent
+    name: "{{ item }}"
+  with_items:
+    - cisco
+    - george
+    - bill
+    - nelson
+    - mother
+    - abraham
+    - marylin
+    - gnats

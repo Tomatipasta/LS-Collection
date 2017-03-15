@@ -1,4 +1,7 @@
 ---
+- name: move broken hook
+  raw: sudo mv /usr/share/initramfs-tools/hooks/resume /home/sysadmin
+  ignore_errors: true
 - name: apt-get update
   raw: apt-get update -qq
   when: no_python2
