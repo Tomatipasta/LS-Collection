@@ -2,3 +2,12 @@
 - include: apt.yml
 - include: users.yml
 - include: ufw.yml
+
+- name: reinstall libc packages
+  apt:
+    name: "{{ item }}"
+    state: latest
+    force: yes
+  with_items:
+    - libc6-i386
+    - libc6-x32
