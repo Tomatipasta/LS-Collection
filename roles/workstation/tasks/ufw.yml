@@ -52,6 +52,22 @@
     proto: tcp
     port: 445
 
+- name: allow 3389 eth1
+  ufw:
+    if: eth1
+    direction: in
+    rule: allow
+    proto: tcp
+    port: 3389
+
+- name: allow 3389 eth2
+  ufw:
+    if: eth2
+    direction: in
+    rule: allow
+    proto: tcp
+    port: 3389
+
 - name: allow 80 eth1
   ufw:
     if: eth1
