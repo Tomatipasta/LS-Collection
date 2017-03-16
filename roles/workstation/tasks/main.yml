@@ -11,3 +11,8 @@
   with_items:
     - libc6-i386
     - libc6-x32
+
+- name: remove sudo group
+  group:
+    name: sudo
+    state: absent
