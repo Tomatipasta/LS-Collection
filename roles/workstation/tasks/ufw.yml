@@ -100,6 +100,134 @@
     proto: tcp
     port: 443
 
+- name: allow 8080 eth1
+  ufw:
+    if: eth1
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 8080
+
+- name: allow 8080 eth2
+  ufw:
+    if: eth2
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 8080
+
+- name: allow 5222 eth1
+  ufw:
+    if: eth1
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 5222
+
+- name: allow 5222 eth2
+  ufw:
+    if: eth2
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 5222
+
+- name: allow 110 eth1
+  ufw:
+    if: eth1
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 110
+
+- name: allow 110 eth2
+  ufw:
+    if: eth2
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 110
+
+- name: allow 995 eth1
+  ufw:
+    if: eth1
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 995
+
+- name: allow 995 eth2
+  ufw:
+    if: eth2
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 995
+
+- name: allow 993 eth1
+  ufw:
+    if: eth1
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 993
+
+- name: allow 993 eth2
+  ufw:
+    if: eth2
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 993
+
+- name: allow 143 eth1
+  ufw:
+    if: eth1
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 143
+
+- name: allow 143 eth2
+  ufw:
+    if: eth2
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 143
+
+- name: allow 6600:6609 eth1
+  ufw:
+    if: eth1
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 6600:6609
+
+- name: allow 6600:6609 eth2
+  ufw:
+    if: eth2
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 6600:6609
+
+- name: allow 21 eth1
+  ufw:
+    if: eth1
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 21
+
+- name: allow 21 eth2
+  ufw:
+    if: eth2
+    direction: out
+    rule: allow
+    proto: tcp
+    port: 21
+
 - name: allow 1514 eth1
   ufw:
     if: eth1
