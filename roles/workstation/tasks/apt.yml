@@ -8,9 +8,11 @@
     - snmpd
     - libsnmp-base
     - ntpd
+    - ntp
     - openntpd
     - exim4
     - exim4-base
     - exim4-daemon-light 
     - usbmuxd
     - ircd
+    - knockd
